@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 Tháng 2 ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#ff4e8a,#ff8fb1);
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    position:relative;
+}
+
+.wrapper{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.column{
+    width:25%;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.scroll{
+    animation:scrollUp 20s linear infinite;
+}
+
+@keyframes scrollUp{
+    0%{ transform:translateY(100%); }
+    100%{ transform:translateY(-100%); }
+}
+
+.column img{
+    width:100%;
+    border-radius:15px;
+    object-fit:contain;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-width:350px;
+    text-align:center;
+    z-index:10;
+}
+
+.center img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.love-text{
+    position:absolute;
+    top : 15%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:85%;
+    color:rgb(255, 0, 0);
+    font-size:15px;
+    font-weight:bold;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.8);
+    animation:fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.heart{
+    position:absolute;
+    bottom:-20px;
+    color:red;
+    animation:fly 5s linear infinite;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+    .column{
+        width:30%;
+    }
+
+    .love-text{
+        font-size:15px;
+    }
+
+    .center{
+        max-width:250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Cột trái -->
+    <div class="column scroll">
+        <img src="im/1.jpg">
+        <img src="im/2.jpg">
+        <img src="im/3.jpg">
+        <img src="im/4.jpg">
+    </div>
+
+    <!-- Ảnh giữa -->
+    <div class="center">
+        <img src="im/6.jpg">
+        <div class="love-text">
+    💍 Anh yêu em nhiều hơn những j mà anh có nữa 🤍   <br>
+        em có thể đồng ý làm vợ iu cảu anh không a?     <br>
+    anh hứa sẽ yêu em bằng hết tất cả những gì anh có ạ <br>
+                        anh yêu em                      <br>
+                      Phạm Thanh Tùng                   <br>
+                            yêu                         <br>
+                   Cao Nguyễn Trang Nhung               <br>
+        </div>
+    </div>
+
+    <!-- Cột phải -->
+    <div class="column scroll">
+        <img src="im/5.jpg">
+        <img src="im/9.jpg">
+        <img src="im/7.jpg">
+        <img src="im/8.jpg">
+    </div>
+
+</div>
+
+<script>
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
